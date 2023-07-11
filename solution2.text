@@ -69,10 +69,12 @@ SELECT `departments`.`name`,`teachers`.`id`,`teachers`.`surname`,`teachers`.`nam
 FROM `departments`
 JOIN `degrees`ON `departments`.`id`=`degrees`.`department_id`
 JOIN `courses` ON `degrees`.`id` = `courses`.`degree_id`
-JOIN `course_teacher`on `courses`.`id` = `course_teacher`.`course_id`
+JOIN `course_teacher`ON `courses`.`id` = `course_teacher`.`course_id`
 JOIN `teachers` ON `teachers`.`id` = `course_teacher`.`teacher_id`
 WHERE `departments`.`name` = "Dipartimento di Matematica"
-ORDER BY `teachers`.`id` ASC;
+GROUP BY `teachers`.`id`;
+
+
 
 
 
